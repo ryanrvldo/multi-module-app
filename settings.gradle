@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "multi-module-app"
 include ':app'
+include ':commons_ui'
+include ':home'
