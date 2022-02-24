@@ -19,6 +19,7 @@ class HomeNavHostFragment : Fragment() {
 
     private val navGraphIds = listOf(
         AppR.navigation.home_nav_graph,
+        AppR.navigation.profile_nav_graph
     )
 
     override fun onCreateView(

@@ -3,4 +3,8 @@
     <string name="home_title">Home</string>
     <string name="home_module_name">home</string>
     <string name="home_package">com.ryanrvldo.home</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="profile_module_name">profile</string>
+    <string name="profile_package">com.ryanrvldo.profile</string>
 </resources>
