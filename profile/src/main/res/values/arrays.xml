@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="profile_menu_title">
+        <item>Account</item>
+        <item>Security</item>
+        <item>Setting</item>
+        <item>About</item>
+    </string-array>
+    <string-array name="profile_menu_navigation">
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>-1</item>
+    </string-array>
+</resources>

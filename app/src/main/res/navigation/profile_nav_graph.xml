@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.ryanrvldo.profile.ProfileFragment"
+        android:name="com.ryanrvldo.profile.ui.ProfileFragment"
         android:label="@string/profile_title" />
 
 </navigation>
