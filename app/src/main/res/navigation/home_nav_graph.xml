@@ -9,6 +9,15 @@
         android:id="@+id/homeFragment"
         android:name="com.ryanrvldo.home.HomeFragment"
         android:label="@string/home_title"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_notification"
+            app:destination="@id/notification_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notification_fragment"
+        android:name="com.ryanrvldo.notification.NotificationFragment"
+        android:label="@string/notification_title" />
 
 </navigation>

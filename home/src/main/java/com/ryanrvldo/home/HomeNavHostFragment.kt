@@ -1,14 +1,19 @@
 package com.ryanrvldo.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.ui.NavigationUI
+import androidx.fragment.app.viewModels
+import androidx.navigation.ui.setupWithNavController
 import com.ryanrvldo.commons.ui.extensions.requireCompatActivity
 import com.ryanrvldo.commons.ui.extensions.setupWithNavController
+import com.ryanrvldo.core.ui.ViewModelFactory
 import com.ryanrvldo.home.databinding.FragmentHomeNavHostBinding
+import javax.inject.Inject
 import com.ryanrvldo.multimoduleapp.R as AppR
 
 class HomeNavHostFragment : Fragment() {
@@ -17,10 +22,22 @@ class HomeNavHostFragment : Fragment() {
     private val binding: FragmentHomeNavHostBinding
         get() = _binding!!
 
+    @Inject
+    lateinit var factory: ViewModelFactory
+    private val viewModel by viewModels<HomeNavHostViewModel> { factory }
+
     private val navGraphIds = listOf(
         AppR.navigation.home_nav_graph,
         AppR.navigation.profile_nav_graph
     )
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        com.ryanrvldo.home.di.DaggerHomeComponent.builder()
+            .context(context)
+            .build()
+            .inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +51,9 @@ class HomeNavHostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireCompatActivity().setSupportActionBar(binding.toolbar)
+        viewModel.isTopLevelState.observe(requireActivity()) { isTopLevel ->
+            binding.bottomNavigation.isVisible = isTopLevel
+        }
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
@@ -52,7 +72,8 @@ class HomeNavHostFragment : Fragment() {
             intent = requireActivity().intent
         )
         navController.observe(viewLifecycleOwner) {
-            NavigationUI.setupActionBarWithNavController(requireCompatActivity(), it)
+            viewModel.onNavControllerChanged(it)
+            binding.toolbar.setupWithNavController(it)
         }
     }
 

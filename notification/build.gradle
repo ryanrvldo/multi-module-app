@@ -13,7 +13,6 @@ android {
 
     defaultConfig {
         minSdk 21
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,6 +36,5 @@ android {
 
 dependencies {
     implementation project(":app")
-    implementation project(":core")
     implementation project(":commons_ui")
 }

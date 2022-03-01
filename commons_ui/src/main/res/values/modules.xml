@@ -7,4 +7,8 @@
     <string name="profile_title">Profile</string>
     <string name="profile_module_name">profile</string>
     <string name="profile_package">com.ryanrvldo.profile</string>
+
+    <string name="notification_title">Notification</string>
+    <string name="notification_module_name">notification</string>
+    <string name="notification_package">com.ryanrvldo.notification</string>
 </resources>
