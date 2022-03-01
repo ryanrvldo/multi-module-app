@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -12,11 +12,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId 'com.ryanrvldo.multimoduleapp'
         minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,10 +33,10 @@ android {
     buildFeatures {
         viewBinding true
     }
-    dynamicFeatures = [':home', ':profile', ':notification', ':setting']
 }
 
 dependencies {
+    implementation project(":app")
     implementation project(":core")
     implementation project(":commons_ui")
 }

@@ -49,7 +49,7 @@ class ProfileMenuAdapter @Inject constructor(context: Context) :
                 if (item.navId != -1) {
                     it.findNavController().navigate(item.navId)
                 } else {
-                    Timber.i(
+                    Timber.e(
                         "Item with title: '%s' has not been set up navigation's id yet.",
                         item.title
                     )

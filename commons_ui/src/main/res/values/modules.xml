@@ -11,4 +11,8 @@
     <string name="notification_title">Notification</string>
     <string name="notification_module_name">notification</string>
     <string name="notification_package">com.ryanrvldo.notification</string>
+
+    <string name="setting_title">Setting</string>
+    <string name="setting_module_name">setting</string>
+    <string name="setting_package">com.ryanrvldo.setting</string>
 </resources>
