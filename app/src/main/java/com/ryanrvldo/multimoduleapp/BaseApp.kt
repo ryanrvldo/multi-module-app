@@ -1,8 +1,10 @@
 package com.ryanrvldo.multimoduleapp
 
 import com.google.android.play.core.splitcompat.SplitCompatApplication
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
+@HiltAndroidApp
 class BaseApp : SplitCompatApplication() {
 
     override fun onCreate() {

@@ -9,10 +9,12 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.ui.setupWithNavController
+import com.ryanrvldo.commons.ui.extensions.buildComponent
 import com.ryanrvldo.commons.ui.extensions.requireCompatActivity
 import com.ryanrvldo.commons.ui.extensions.setupWithNavController
 import com.ryanrvldo.core.ui.ViewModelFactory
 import com.ryanrvldo.home.databinding.FragmentHomeNavHostBinding
+import com.ryanrvldo.home.di.DaggerHomeComponent
 import javax.inject.Inject
 import com.ryanrvldo.multimoduleapp.R as AppR
 
@@ -33,10 +35,7 @@ class HomeNavHostFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        com.ryanrvldo.home.di.DaggerHomeComponent.builder()
-            .context(context)
-            .build()
-            .inject(this)
+        buildComponent(DaggerHomeComponent.builder()).inject(this)
     }
 
     override fun onCreateView(
